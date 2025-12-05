@@ -95,3 +95,6 @@ Saat ini, fitur upload gambar sedang mengalami kendala teknis. Pengguna mungkin 
 ## 📝 Lisensi
 
 Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+# INFOR
+INFOR (Informatika Forum) sebuah aplikasi chating
