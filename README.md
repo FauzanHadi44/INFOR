@@ -1,97 +1,97 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Informatika Forum (ChatApp)
 
-# Getting Started
+<div align="center">
+  <img src="assets/Logo.png" alt="Logo Informatika Forum" width="150"/>
+  <br/>
+  <b>Aplikasi Chat Real-time untuk Komunitas Informatika</b>
+  <b>Tugas PBP - FAUZAN HADI</b>
+</div>
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+<br/>
 
-## Step 1: Start Metro
+Sebuah aplikasi chat real-time yang dibangun menggunakan **React Native** dan **Firebase**, dirancang khusus untuk komunitas "Informatika Forum".
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Fitur Utama
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Autentikasi Pengguna**: Login dan registrasi yang aman menggunakan Firebase Authentication.
+- **Pesan Real-time**: Kirim dan terima pesan secara instan didukung oleh Cloud Firestore.
+- **Mode Offline**: Riwayat chat disimpan secara lokal menggunakan AsyncStorage, memungkinkan pengguna melihat pesan tanpa koneksi internet.
+- **Splash Screen**: Layar pembuka kustom dengan animasi logo.
+- **Berbagi Gambar**: (Beta) Fitur untuk mengirim gambar dalam chat.
 
-```sh
-# Using npm
-npm start
+## 📂 Struktur File
 
-# OR using Yarn
-yarn start
+Berikut adalah struktur folder utama dalam proyek ini:
+
+```
+ChatApp
+├── assets/
+│   └── Logo.png              # Aset gambar logo aplikasi
+├── ios/                      # Kode native iOS dan konfigurasi Xcode
+├── android/                  # Kode native Android dan konfigurasi Gradle
+├── screens/                  # Komponen halaman (Screen)
+│   ├── ChatScreen.tsx        # Halaman utama chat & logika upload gambar
+│   ├── LoginScreen.tsx       # Halaman login pengguna
+│   ├── RegisterScreen.tsx    # Halaman pendaftaran akun baru
+│   └── SplashScreen.tsx      # Layar awal saat aplikasi dibuka
+├── storage/
+│   └── mmkv.ts               # Utilitas penyimpanan lokal (AsyncStorage)
+├── App.tsx                   # Entry point aplikasi & konfigurasi Navigasi
+├── firebase.ts               # Inisialisasi & konfigurasi layanan Firebase
+├── package.json              # Daftar dependensi proyek
+└── README.md                 # Dokumentasi proyek
 ```
 
-## Step 2: Build and run your app
+## 🛠 Teknologi yang Digunakan
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- **Frontend**: React Native (CLI), TypeScript
+- **Backend**: Firebase (Auth, Firestore, Storage)
+- **Penyimpanan Lokal**: AsyncStorage
+- **Navigasi**: React Navigation (Native Stack)
+- **Ikon**: React Native Vector Icons (Ionicons)
 
-### Android
+## ⚠️ Masalah yang Diketahui (PENTING)
 
-```sh
-# Using npm
-npm run android
+### 📷 Error Upload Gambar
+Saat ini, fitur upload gambar sedang mengalami kendala teknis. Pengguna mungkin menemui pesan error berikut saat mencoba mengirim gambar:
 
-# OR using Yarn
-yarn android
-```
+> **Error**: `Firebase Storage: An unknown error occurred (storage/unknown)`
 
-### iOS
+**Status**: Dalam Perbaikan 🚧
+- Masalah ini kemungkinan terkait dengan penanganan `Blob` atau konfigurasi Firebase Storage pada simulator/perangkat iOS.
+- Logging error detail telah ditambahkan untuk membantu proses debugging.
+- Silakan periksa log konsol untuk `Upload Error (full payload)` guna melihat detail kesalahan.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 📥 Instalasi & Pengaturan
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+1. **Clone repositori**
+   ```bash
+   git clone <url-repositori-anda>
+   cd ChatApp
+   ```
 
-```sh
-bundle install
-```
+2. **Install dependensi**
+   ```bash
+   npm install
+   ```
 
-Then, and every time you update your native dependencies, run:
+3. **Install dependensi iOS (Khusus macOS)**
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
 
-```sh
-bundle exec pod install
-```
+4. **Jalankan aplikasi**
+   - Untuk iOS:
+     ```bash
+     npx react-native run-ios
+     ```
+   - Untuk Android:
+     ```bash
+     npx react-native run-android
+     ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 📝 Lisensi
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
